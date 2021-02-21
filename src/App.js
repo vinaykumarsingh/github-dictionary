@@ -1,22 +1,31 @@
 import logo from './logo.svg';
+import React from 'react'
 import './App.css';
+import { ThemeContext } from './utils/themeContext'
+import Search from './components/search/Search'
 
+import { Sun } from 'react-feather';
+import { Moon } from 'react-feather';
+
+/**
+ * Root Component which hold the Toggle logic and Search component
+ */
 function App() {
+  const { theme, toggle, dark } = React.useContext(ThemeContext)
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+      <header className="App-header"
+        style={{ backgroundColor: theme.backgroundColor, color: theme.color }}>
+        <div className='theme-container'>
+          <span className="sun-moon" onClick={toggle}>
+            <span>{!dark ? 'Dark' : 'Light'} theme</span>
+            {!dark? <Moon/>:<Sun/>}
+          </span>
+        </div>
+        
+        <div className={`theme${dark ? 'Dark' : 'Light'}`}>
+          <Search/>
+        </div>       
       </header>
     </div>
   );

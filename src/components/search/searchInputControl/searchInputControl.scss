@@ -1,0 +1,49 @@
+.searchPage {
+  width: 1000px;
+  min-height: 100vh;
+
+  .searchHeader {
+    text-align: left;
+    text-transform: capitalize;
+    margin: 2% auto;
+    color: #797878;
+    padding-left: 44px;
+  }
+  
+  .SearchInputControl {
+    width: 500px;
+    margin: auto;
+    position: relative;
+  
+    .search-icon {
+        position: relative;
+        right: 228px;
+        top: 38px;
+        color: #9c9393;
+    }
+  
+    .searchInputBox {
+        height: 40px;
+        padding: 1px 5% 3px 8%;
+        outline: 0;
+        width: 500px;
+        margin: auto;
+        background-color: #fff;
+        border: 2px solid #bbb8b8;
+        border-radius: 2%;
+      &:focus {
+        border: 2px solid #59bdff62;
+        background-color: white;
+      }
+    }
+  
+    .delete-icon {
+        position: relative;
+        left: 290px;
+        bottom: 36px;
+        color: #9c9393;
+        cursor: pointer;
+    }
+  }
+}  
+  
