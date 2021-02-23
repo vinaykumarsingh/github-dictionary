@@ -13,11 +13,12 @@ const ThemeContext = React.createContext(initialState)
  */
 function ThemeProvider({ children }) {
   const [dark, setDark] = React.useState(false) // Default theme is light
-
+  const [isPageLoaded, setIsPageLoaded] = React.useState(false);
   // On mount, read the preferred theme from the persistence
   React.useEffect(() => {
-    const isDark = localStorage.getItem('dark') === 'true'
-    setDark(isDark)
+    const isDark = localStorage.getItem('dark') === 'true';
+    setDark(isDark);
+    setIsPageLoaded(true)
   }, [dark])
 
   // To toggle between dark and light modes
@@ -31,7 +32,7 @@ function ThemeProvider({ children }) {
   const theme = dark ? THEMES.dark : THEMES.light
 
   return (
-    <ThemeContext.Provider value={{ theme, dark, toggle }}>
+    <ThemeContext.Provider value={{ theme, dark, toggle, isPageLoaded }}>
       {children}
     </ThemeContext.Provider>
   )

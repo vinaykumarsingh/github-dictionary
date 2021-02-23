@@ -11,7 +11,10 @@ import { Moon } from 'react-feather';
  * Root Component which hold the Toggle logic and Search component
  */
 function App() {
-  const { theme, toggle, dark } = React.useContext(ThemeContext)
+  const { theme, dark, toggle, isPageLoaded } = React.useContext(ThemeContext);
+  if(!isPageLoaded) {
+    return false;
+  }
   return (
     <div className="App">
       <header className="App-header"
